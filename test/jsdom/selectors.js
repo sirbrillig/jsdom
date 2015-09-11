@@ -21,3 +21,12 @@ exports["div[title=''] (GH-1163)"] = function (t) {
   t.strictEqual(document.querySelectorAll("div[title][title='']").length, 1);
   t.done();
 };
+
+exports["//MAIN MENU... (GH-1214)"] = function (t) {
+  const document = jsdom();
+
+  const selector = " //MAIN MENU - (used to keep mobile menu options hidden and keep weather/search and menu " +
+                   "on one line) // #tncms-region-nav-main-nav-right-nav";
+  t.strictEqual(document.querySelector(selector), null);
+  t.done();
+};
